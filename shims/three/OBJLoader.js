@@ -5,7 +5,7 @@
  *
  */
 
-import THREE from './core'
+import THREE from './core';
 
 // o object_name | g group_name
 var object_pattern = /^[og]\s*(.+)?/;
@@ -369,7 +369,7 @@ THREE.OBJLoader = function( manager ) {
 
 	this.materials = null;
 
-}
+};
 
 THREE.OBJLoader.prototype = {
 
@@ -441,12 +441,12 @@ THREE.OBJLoader.prototype = {
 
 			lineLength = line.length;
 
-			if ( lineLength === 0 ) continue;
+			if ( lineLength === 0 ) {continue;}
 
 			lineFirstChar = line.charAt( 0 );
 
 			// @todo invoke passed in handler if any
-			if ( lineFirstChar === '#' ) continue;
+			if ( lineFirstChar === '#' ) {continue;}
 
 			if ( lineFirstChar === 'v' ) {
 
@@ -527,10 +527,10 @@ THREE.OBJLoader.prototype = {
 
 			} else if ( lineFirstChar === 'l' ) {
 
-				var lineParts = line.substring( 1 ).trim().split( " " );
+				var lineParts = line.substring( 1 ).trim().split( ' ' );
 				var lineVertices = [], lineUVs = [];
 
-				if ( line.indexOf( "/" ) === - 1 ) {
+				if ( line.indexOf( '/' ) === - 1 ) {
 
 					lineVertices = lineParts;
 
@@ -538,10 +538,10 @@ THREE.OBJLoader.prototype = {
 
 					for ( var li = 0, llen = lineParts.length; li < llen; li ++ ) {
 
-						var parts = lineParts[ li ].split( "/" );
+						var parts = lineParts[ li ].split( '/' );
 
-						if ( parts[ 0 ] !== "" ) lineVertices.push( parts[ 0 ] );
-						if ( parts[ 1 ] !== "" ) lineUVs.push( parts[ 1 ] );
+						if ( parts[ 0 ] !== '' ) {lineVertices.push( parts[ 0 ] );}
+						if ( parts[ 1 ] !== '' ) {lineUVs.push( parts[ 1 ] );}
 
 					}
 
@@ -551,7 +551,7 @@ THREE.OBJLoader.prototype = {
 			} else if ( lineFirstChar === 'p' ) {
 
 				var lineData = line.substr( 1 ).trim();
-				var pointData = lineData.split( " " );
+				var pointData = lineData.split( ' ' );
 
 				state.addPointGeometry( pointData );
 
@@ -563,7 +563,7 @@ THREE.OBJLoader.prototype = {
 
 				// WORKAROUND: https://bugs.chromium.org/p/v8/issues/detail?id=2869
 				// var name = result[ 0 ].substr( 1 ).trim();
-				var name = ( " " + result[ 0 ].substr( 1 ).trim() ).substr( 1 );
+				var name = ( ' ' + result[ 0 ].substr( 1 ).trim() ).substr( 1 );
 
 				state.startObject( name );
 
@@ -615,12 +615,12 @@ THREE.OBJLoader.prototype = {
 
 				}
 				var material = state.object.currentMaterial();
-				if ( material ) material.smooth = state.object.smooth;
+				if ( material ) {material.smooth = state.object.smooth;}
 
 			} else {
 
 				// Handle null terminated files without exception
-				if ( line === '\0' ) continue;
+				if ( line === '\0' ) {continue;}
 
 				throw new Error( 'THREE.OBJLoader: Unexpected line: "' + line + '"' );
 
@@ -643,7 +643,7 @@ THREE.OBJLoader.prototype = {
 			var hasVertexColors = false;
 
 			// Skip o/g line declarations that did not follow with any faces
-			if ( geometry.vertices.length === 0 ) continue;
+			if ( geometry.vertices.length === 0 ) {continue;}
 
 			var buffergeometry = new THREE.BufferGeometry();
 

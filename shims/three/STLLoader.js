@@ -29,7 +29,7 @@
  *  var mesh = new THREE.Mesh( geometry, material );
  */
 
-import THREE from './core'
+import THREE from './core';
 
 THREE.STLLoader = function (manager) {
 
@@ -84,7 +84,7 @@ THREE.STLLoader.prototype = {
         // If solid[ i ] does not match the i-th byte, then it is not an
         // ASCII STL; hence, it is binary and return true.
 
-        if (solid[i] != reader.getUint8(i, false)) return true;
+        if (solid[i] != reader.getUint8(i, false)) {return true;}
 
       }
 

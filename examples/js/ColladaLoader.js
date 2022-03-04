@@ -80,7 +80,7 @@ THREE.ColladaLoader.prototype = {
 
 		function parseStrings( text ) {
 
-			if ( text.length === 0 ) return [];
+			if ( text.length === 0 ) {return [];}
 
 			var parts = text.trim().split( /\s+/ );
 			var array = new Array( parts.length );
@@ -97,7 +97,7 @@ THREE.ColladaLoader.prototype = {
 
 		function parseFloats( text ) {
 
-			if ( text.length === 0 ) return [];
+			if ( text.length === 0 ) {return [];}
 
 			var parts = text.trim().split( /\s+/ );
 			var array = new Array( parts.length );
@@ -114,7 +114,7 @@ THREE.ColladaLoader.prototype = {
 
 		function parseInts( text ) {
 
-			if ( text.length === 0 ) return [];
+			if ( text.length === 0 ) {return [];}
 
 			var parts = text.trim().split( /\s+/ );
 			var array = new Array( parts.length );
@@ -205,7 +205,7 @@ THREE.ColladaLoader.prototype = {
 
 		function getBuild( data, builder ) {
 
-			if ( data.build !== undefined ) return data.build;
+			if ( data.build !== undefined ) {return data.build;}
 
 			data.build = builder( data );
 
@@ -227,7 +227,7 @@ THREE.ColladaLoader.prototype = {
 
 				var child = xml.childNodes[ i ];
 
-				if ( child.nodeType !== 1 ) continue;
+				if ( child.nodeType !== 1 ) {continue;}
 
 				var id;
 
@@ -269,7 +269,7 @@ THREE.ColladaLoader.prototype = {
 
 				var child = xml.childNodes[ i ];
 
-				if ( child.nodeType !== 1 ) continue;
+				if ( child.nodeType !== 1 ) {continue;}
 
 				switch ( child.nodeName ) {
 
@@ -406,7 +406,7 @@ THREE.ColladaLoader.prototype = {
 						time = inputSource.array[ i ];
 						stride = i * outputSource.stride;
 
-						if ( data[ time ] === undefined ) data[ time ] = {};
+						if ( data[ time ] === undefined ) {data[ time ] = {};}
 
 						if ( channel.arraySyntax === true ) {
 
@@ -521,9 +521,9 @@ THREE.ColladaLoader.prototype = {
 
 			}
 
-			if ( positionData.length > 0 ) tracks.push( new THREE.VectorKeyframeTrack( name + '.position', times, positionData ) );
-			if ( quaternionData.length > 0 ) tracks.push( new THREE.QuaternionKeyframeTrack( name + '.quaternion', times, quaternionData ) );
-			if ( scaleData.length > 0 ) tracks.push( new THREE.VectorKeyframeTrack( name + '.scale', times, scaleData ) );
+			if ( positionData.length > 0 ) {tracks.push( new THREE.VectorKeyframeTrack( name + '.position', times, positionData ) );}
+			if ( quaternionData.length > 0 ) {tracks.push( new THREE.QuaternionKeyframeTrack( name + '.quaternion', times, quaternionData ) );}
+			if ( scaleData.length > 0 ) {tracks.push( new THREE.VectorKeyframeTrack( name + '.scale', times, scaleData ) );}
 
 			return tracks;
 
@@ -617,7 +617,7 @@ THREE.ColladaLoader.prototype = {
 
 				var keyframe = keyframes[ i ];
 
-				if ( keyframe.value[ property ] !== null ) return keyframe;
+				if ( keyframe.value[ property ] !== null ) {return keyframe;}
 
 				i --;
 
@@ -633,7 +633,7 @@ THREE.ColladaLoader.prototype = {
 
 				var keyframe = keyframes[ i ];
 
-				if ( keyframe.value[ property ] !== null ) return keyframe;
+				if ( keyframe.value[ property ] !== null ) {return keyframe;}
 
 				i ++;
 
@@ -671,7 +671,7 @@ THREE.ColladaLoader.prototype = {
 
 				var child = xml.childNodes[ i ];
 
-				if ( child.nodeType !== 1 ) continue;
+				if ( child.nodeType !== 1 ) {continue;}
 
 				switch ( child.nodeName ) {
 
@@ -727,7 +727,7 @@ THREE.ColladaLoader.prototype = {
 
 				var child = xml.childNodes[ i ];
 
-				if ( child.nodeType !== 1 ) continue;
+				if ( child.nodeType !== 1 ) {continue;}
 
 				switch ( child.nodeName ) {
 
@@ -760,7 +760,7 @@ THREE.ColladaLoader.prototype = {
 
 				var child = xml.childNodes[ i ];
 
-				if ( child.nodeType !== 1 ) continue;
+				if ( child.nodeType !== 1 ) {continue;}
 
 				switch ( child.nodeName ) {
 
@@ -799,7 +799,7 @@ THREE.ColladaLoader.prototype = {
 
 				var child = xml.childNodes[ i ];
 
-				if ( child.nodeType !== 1 ) continue;
+				if ( child.nodeType !== 1 ) {continue;}
 
 				switch ( child.nodeName ) {
 
@@ -827,7 +827,7 @@ THREE.ColladaLoader.prototype = {
 
 				var child = xml.childNodes[ i ];
 
-				if ( child.nodeType !== 1 ) continue;
+				if ( child.nodeType !== 1 ) {continue;}
 
 				switch ( child.nodeName ) {
 
@@ -1003,7 +1003,7 @@ THREE.ColladaLoader.prototype = {
 
 		function buildImage( data ) {
 
-			if ( data.build !== undefined ) return data.build;
+			if ( data.build !== undefined ) {return data.build;}
 
 			return data.init_from;
 
@@ -1025,7 +1025,7 @@ THREE.ColladaLoader.prototype = {
 
 				var child = xml.childNodes[ i ];
 
-				if ( child.nodeType !== 1 ) continue;
+				if ( child.nodeType !== 1 ) {continue;}
 
 				switch ( child.nodeName ) {
 
@@ -1052,7 +1052,7 @@ THREE.ColladaLoader.prototype = {
 
 				var child = xml.childNodes[ i ];
 
-				if ( child.nodeType !== 1 ) continue;
+				if ( child.nodeType !== 1 ) {continue;}
 
 				switch ( child.nodeName ) {
 
@@ -1080,7 +1080,7 @@ THREE.ColladaLoader.prototype = {
 
 				var child = xml.childNodes[ i ];
 
-				if ( child.nodeType !== 1 ) continue;
+				if ( child.nodeType !== 1 ) {continue;}
 
 				switch ( child.nodeName ) {
 
@@ -1106,7 +1106,7 @@ THREE.ColladaLoader.prototype = {
 
 				var child = xml.childNodes[ i ];
 
-				if ( child.nodeType !== 1 ) continue;
+				if ( child.nodeType !== 1 ) {continue;}
 
 				switch ( child.nodeName ) {
 
@@ -1130,7 +1130,7 @@ THREE.ColladaLoader.prototype = {
 
 				var child = xml.childNodes[ i ];
 
-				if ( child.nodeType !== 1 ) continue;
+				if ( child.nodeType !== 1 ) {continue;}
 
 				switch ( child.nodeName ) {
 
@@ -1154,7 +1154,7 @@ THREE.ColladaLoader.prototype = {
 
 				var child = xml.childNodes[ i ];
 
-				if ( child.nodeType !== 1 ) continue;
+				if ( child.nodeType !== 1 ) {continue;}
 
 				switch ( child.nodeName ) {
 
@@ -1182,7 +1182,7 @@ THREE.ColladaLoader.prototype = {
 
 				var child = xml.childNodes[ i ];
 
-				if ( child.nodeType !== 1 ) continue;
+				if ( child.nodeType !== 1 ) {continue;}
 
 				switch ( child.nodeName ) {
 
@@ -1211,7 +1211,7 @@ THREE.ColladaLoader.prototype = {
 
 				var child = xml.childNodes[ i ];
 
-				if ( child.nodeType !== 1 ) continue;
+				if ( child.nodeType !== 1 ) {continue;}
 
 				switch ( child.nodeName ) {
 
@@ -1245,7 +1245,7 @@ THREE.ColladaLoader.prototype = {
 
 				var child = xml.childNodes[ i ];
 
-				if ( child.nodeType !== 1 ) continue;
+				if ( child.nodeType !== 1 ) {continue;}
 
 				switch ( child.nodeName ) {
 
@@ -1267,7 +1267,7 @@ THREE.ColladaLoader.prototype = {
 
 				var child = xml.childNodes[ i ];
 
-				if ( child.nodeType !== 1 ) continue;
+				if ( child.nodeType !== 1 ) {continue;}
 
 				switch ( child.nodeName ) {
 
@@ -1287,7 +1287,7 @@ THREE.ColladaLoader.prototype = {
 
 				var child = xml.childNodes[ i ];
 
-				if ( child.nodeType !== 1 ) continue;
+				if ( child.nodeType !== 1 ) {continue;}
 
 				switch ( child.nodeName ) {
 
@@ -1349,7 +1349,7 @@ THREE.ColladaLoader.prototype = {
 
 				var child = xml.childNodes[ i ];
 
-				if ( child.nodeType !== 1 ) continue;
+				if ( child.nodeType !== 1 ) {continue;}
 
 				switch ( child.nodeName ) {
 
@@ -1439,27 +1439,27 @@ THREE.ColladaLoader.prototype = {
 				switch ( key ) {
 
 					case 'diffuse':
-						if ( parameter.color ) material.color.fromArray( parameter.color );
-						if ( parameter.texture ) material.map = getTexture( parameter.texture );
+						if ( parameter.color ) {material.color.fromArray( parameter.color );}
+						if ( parameter.texture ) {material.map = getTexture( parameter.texture );}
 						break;
 					case 'specular':
-						if ( parameter.color && material.specular ) material.specular.fromArray( parameter.color );
-						if ( parameter.texture ) material.specularMap = getTexture( parameter.texture );
+						if ( parameter.color && material.specular ) {material.specular.fromArray( parameter.color );}
+						if ( parameter.texture ) {material.specularMap = getTexture( parameter.texture );}
 						break;
 					case 'shininess':
 						if ( parameter.float && material.shininess )
-							material.shininess = parameter.float;
+							{material.shininess = parameter.float;}
 						break;
 					case 'emission':
 						if ( parameter.color && material.emissive )
-							material.emissive.fromArray( parameter.color );
+							{material.emissive.fromArray( parameter.color );}
 						break;
 					case 'transparent':
 						// if ( parameter.texture ) material.alphaMap = getTexture( parameter.texture );
 						material.transparent = true;
 						break;
 					case 'transparency':
-						if ( parameter.float !== undefined ) material.opacity = parameter.float;
+						if ( parameter.float !== undefined ) {material.opacity = parameter.float;}
 						material.transparent = true;
 						break;
 
@@ -1489,7 +1489,7 @@ THREE.ColladaLoader.prototype = {
 
 				var child = xml.childNodes[ i ];
 
-				if ( child.nodeType !== 1 ) continue;
+				if ( child.nodeType !== 1 ) {continue;}
 
 				switch ( child.nodeName ) {
 
@@ -1641,7 +1641,7 @@ THREE.ColladaLoader.prototype = {
 
 				var child = xml.childNodes[ i ];
 
-				if ( child.nodeType !== 1 ) continue;
+				if ( child.nodeType !== 1 ) {continue;}
 
 				switch ( child.nodeName ) {
 
@@ -1665,7 +1665,7 @@ THREE.ColladaLoader.prototype = {
 
 				var child = xml.childNodes[ i ];
 
-				if ( child.nodeType !== 1 ) continue;
+				if ( child.nodeType !== 1 ) {continue;}
 
 				switch ( child.nodeName ) {
 
@@ -1693,7 +1693,7 @@ THREE.ColladaLoader.prototype = {
 
 				var child = xml.childNodes[ i ];
 
-				if ( child.nodeType !== 1 ) continue;
+				if ( child.nodeType !== 1 ) {continue;}
 
 				switch ( child.nodeName ) {
 
@@ -1743,8 +1743,8 @@ THREE.ColladaLoader.prototype = {
 
 			}
 
-			if ( data.parameters.color ) light.color.copy( data.parameters.color );
-			if ( data.parameters.distance ) light.distance = data.parameters.distance;
+			if ( data.parameters.color ) {light.color.copy( data.parameters.color );}
+			if ( data.parameters.distance ) {light.distance = data.parameters.distance;}
 
 			return light;
 
@@ -1779,7 +1779,7 @@ THREE.ColladaLoader.prototype = {
 
 				var child = mesh.childNodes[ i ];
 
-				if ( child.nodeType !== 1 ) continue;
+				if ( child.nodeType !== 1 ) {continue;}
 
 				var id = child.getAttribute( 'id' );
 
@@ -1827,7 +1827,7 @@ THREE.ColladaLoader.prototype = {
 
 				var child = xml.childNodes[ i ];
 
-				if ( child.nodeType !== 1 ) continue;
+				if ( child.nodeType !== 1 ) {continue;}
 
 				switch ( child.nodeName ) {
 
@@ -1865,7 +1865,7 @@ THREE.ColladaLoader.prototype = {
 
 				var child = xml.childNodes[ i ];
 
-				if ( child.nodeType !== 1 ) continue;
+				if ( child.nodeType !== 1 ) {continue;}
 
 				data[ child.getAttribute( 'semantic' ) ] = parseId( child.getAttribute( 'source' ) );
 
@@ -1889,7 +1889,7 @@ THREE.ColladaLoader.prototype = {
 
 				var child = xml.childNodes[ i ];
 
-				if ( child.nodeType !== 1 ) continue;
+				if ( child.nodeType !== 1 ) {continue;}
 
 				switch ( child.nodeName ) {
 
@@ -1925,7 +1925,7 @@ THREE.ColladaLoader.prototype = {
 
 				var primitive = primitives[ i ];
 
-				if ( build[ primitive.type ] === undefined ) build[ primitive.type ] = [];
+				if ( build[ primitive.type ] === undefined ) {build[ primitive.type ] = [];}
 
 				build[ primitive.type ].push( primitive );
 
@@ -1943,7 +1943,7 @@ THREE.ColladaLoader.prototype = {
 			var vertices = data.vertices;
 			var primitives = data.primitives;
 
-			if ( primitives.length === 0 ) return {};
+			if ( primitives.length === 0 ) {return {};}
 
 			// our goal is to create one buffer geoemtry for a single type of primitives
 			// first, we group all primitives by their type
@@ -2088,13 +2088,13 @@ THREE.ColladaLoader.prototype = {
 
 			// build geometry
 
-			if ( position.array.length > 0 ) geometry.addAttribute( 'position', new THREE.Float32BufferAttribute( position.array, position.stride ) );
-			if ( normal.array.length > 0 ) geometry.addAttribute( 'normal', new THREE.Float32BufferAttribute( normal.array, normal.stride ) );
-			if ( color.array.length > 0 ) geometry.addAttribute( 'color', new THREE.Float32BufferAttribute( color.array, color.stride ) );
-			if ( uv.array.length > 0 ) geometry.addAttribute( 'uv', new THREE.Float32BufferAttribute( uv.array, uv.stride ) );
+			if ( position.array.length > 0 ) {geometry.addAttribute( 'position', new THREE.Float32BufferAttribute( position.array, position.stride ) );}
+			if ( normal.array.length > 0 ) {geometry.addAttribute( 'normal', new THREE.Float32BufferAttribute( normal.array, normal.stride ) );}
+			if ( color.array.length > 0 ) {geometry.addAttribute( 'color', new THREE.Float32BufferAttribute( color.array, color.stride ) );}
+			if ( uv.array.length > 0 ) {geometry.addAttribute( 'uv', new THREE.Float32BufferAttribute( uv.array, uv.stride ) );}
 
-			if ( skinIndex.array.length > 0 ) geometry.addAttribute( 'skinIndex', new THREE.Float32BufferAttribute( skinIndex.array, skinIndex.stride ) );
-			if ( skinWeight.array.length > 0 ) geometry.addAttribute( 'skinWeight', new THREE.Float32BufferAttribute( skinWeight.array, skinWeight.stride ) );
+			if ( skinIndex.array.length > 0 ) {geometry.addAttribute( 'skinIndex', new THREE.Float32BufferAttribute( skinIndex.array, skinIndex.stride ) );}
+			if ( skinWeight.array.length > 0 ) {geometry.addAttribute( 'skinWeight', new THREE.Float32BufferAttribute( skinWeight.array, skinWeight.stride ) );}
 
 			build.data = geometry;
 			build.type = primitives[ 0 ].type;
@@ -2202,7 +2202,7 @@ THREE.ColladaLoader.prototype = {
 
 				var child = xml.childNodes[ i ];
 
-				if ( child.nodeType !== 1 ) continue;
+				if ( child.nodeType !== 1 ) {continue;}
 
 				switch ( child.nodeName ) {
 
@@ -2220,7 +2220,7 @@ THREE.ColladaLoader.prototype = {
 
 		function buildKinematicsModel( data ) {
 
-			if ( data.build !== undefined ) return data.build;
+			if ( data.build !== undefined ) {return data.build;}
 
 			return data;
 
@@ -2238,7 +2238,7 @@ THREE.ColladaLoader.prototype = {
 
 				var child = xml.childNodes[ i ];
 
-				if ( child.nodeType !== 1 ) continue;
+				if ( child.nodeType !== 1 ) {continue;}
 
 				switch ( child.nodeName ) {
 
@@ -2264,7 +2264,7 @@ THREE.ColladaLoader.prototype = {
 
 				var child = xml.childNodes[ i ];
 
-				if ( child.nodeType !== 1 ) continue;
+				if ( child.nodeType !== 1 ) {continue;}
 
 				switch ( child.nodeName ) {
 
@@ -2301,7 +2301,7 @@ THREE.ColladaLoader.prototype = {
 
 				var child = xml.childNodes[ i ];
 
-				if ( child.nodeType !== 1 ) continue;
+				if ( child.nodeType !== 1 ) {continue;}
 
 				switch ( child.nodeName ) {
 
@@ -2350,7 +2350,7 @@ THREE.ColladaLoader.prototype = {
 
 				var child = xml.childNodes[ i ];
 
-				if ( child.nodeType !== 1 ) continue;
+				if ( child.nodeType !== 1 ) {continue;}
 
 				switch ( child.nodeName ) {
 
@@ -2384,7 +2384,7 @@ THREE.ColladaLoader.prototype = {
 
 				var child = xml.childNodes[ i ];
 
-				if ( child.nodeType !== 1 ) continue;
+				if ( child.nodeType !== 1 ) {continue;}
 
 				switch ( child.nodeName ) {
 
@@ -2448,7 +2448,7 @@ THREE.ColladaLoader.prototype = {
 
 				var child = xml.childNodes[ i ];
 
-				if ( child.nodeType !== 1 ) continue;
+				if ( child.nodeType !== 1 ) {continue;}
 
 				switch ( child.nodeName ) {
 
@@ -2474,7 +2474,7 @@ THREE.ColladaLoader.prototype = {
 
 				var child = xml.childNodes[ i ];
 
-				if ( child.nodeType !== 1 ) continue;
+				if ( child.nodeType !== 1 ) {continue;}
 
 				switch ( child.nodeName ) {
 
@@ -2495,7 +2495,7 @@ THREE.ColladaLoader.prototype = {
 
 		function buildKinematicsScene( data ) {
 
-			if ( data.build !== undefined ) return data.build;
+			if ( data.build !== undefined ) {return data.build;}
 
 			return data;
 
@@ -2513,7 +2513,7 @@ THREE.ColladaLoader.prototype = {
 			var kinematicsSceneId = Object.keys( library.kinematicsScenes )[ 0 ];
 			var visualSceneId = Object.keys( library.visualScenes )[ 0 ];
 
-			if ( kinematicsModelId === undefined || kinematicsSceneId === undefined ) return;
+			if ( kinematicsModelId === undefined || kinematicsSceneId === undefined ) {return;}
 
 			var kinematicsModel = getKinematicsModel( kinematicsModelId );
 			var kinematicsScene = getKinematicsScene( kinematicsSceneId );
@@ -2693,7 +2693,7 @@ THREE.ColladaLoader.prototype = {
 
 				var child = xml.childNodes[ i ];
 
-				if ( child.nodeType !== 1 ) continue;
+				if ( child.nodeType !== 1 ) {continue;}
 
 				switch ( child.nodeName ) {
 
@@ -2784,7 +2784,7 @@ THREE.ColladaLoader.prototype = {
 
 				var child = xml.childNodes[ i ];
 
-				if ( child.nodeType !== 1 ) continue;
+				if ( child.nodeType !== 1 ) {continue;}
 
 				switch ( child.nodeName ) {
 

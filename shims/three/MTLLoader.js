@@ -4,7 +4,7 @@
  * @author angelxuanchang
  */
 
-import THREE from './core'
+import THREE from './core';
 
 THREE.MTLLoader = function ( manager ) {
 
@@ -237,7 +237,7 @@ THREE.MTLLoader.MaterialCreator.prototype = {
 
 	convert: function ( materialsInfo ) {
 
-		if ( ! this.options ) return materialsInfo;
+		if ( ! this.options ) {return materialsInfo;}
 
 		var converted = {};
 
@@ -365,10 +365,10 @@ THREE.MTLLoader.MaterialCreator.prototype = {
 		function resolveURL( baseUrl, url ) {
 
 			if ( typeof url !== 'string' || url === '' )
-				return '';
+				{return '';}
 
 			// Absolute URL
-			if ( /^https?:\/\//i.test( url ) ) return url;
+			if ( /^https?:\/\//i.test( url ) ) {return url;}
 
 			return baseUrl + url;
 
@@ -376,7 +376,7 @@ THREE.MTLLoader.MaterialCreator.prototype = {
 
 		function setMapForType( mapType, value ) {
 
-			if ( params[ mapType ] ) return; // Keep the first encountered texture
+			if ( params[ mapType ] ) {return;} // Keep the first encountered texture
 
 			var texParams = scope.getTextureParams( value, params );
 			var map = scope.loadTexture( resolveURL( scope.baseUrl, texParams.url ) );
@@ -396,7 +396,7 @@ THREE.MTLLoader.MaterialCreator.prototype = {
 			var value = mat[ prop ];
 			var n;
 
-			if ( value === '' ) continue;
+			if ( value === '' ) {continue;}
 
 			switch ( prop.toLowerCase() ) {
 
@@ -428,7 +428,7 @@ THREE.MTLLoader.MaterialCreator.prototype = {
 
 					// Diffuse texture map
 
-					setMapForType( "map", value );
+					setMapForType( 'map', value );
 
 					break;
 
@@ -436,7 +436,7 @@ THREE.MTLLoader.MaterialCreator.prototype = {
 
 					// Specular map
 
-					setMapForType( "specularMap", value );
+					setMapForType( 'specularMap', value );
 
 					break;
 
@@ -444,13 +444,13 @@ THREE.MTLLoader.MaterialCreator.prototype = {
 
 					// Emissive map
 
-					setMapForType( "emissiveMap", value );
+					setMapForType( 'emissiveMap', value );
 
 					break;
 
 				case 'norm':
 
-					setMapForType( "normalMap", value );
+					setMapForType( 'normalMap', value );
 
 					break;
 
@@ -459,7 +459,7 @@ THREE.MTLLoader.MaterialCreator.prototype = {
 
 					// Bump texture map
 
-					setMapForType( "bumpMap", value );
+					setMapForType( 'bumpMap', value );
 
 					break;
 
@@ -467,7 +467,7 @@ THREE.MTLLoader.MaterialCreator.prototype = {
 
 					// Alpha map
 
-					setMapForType( "alphaMap", value );
+					setMapForType( 'alphaMap', value );
 					params.transparent = true;
 
 					break;
@@ -496,7 +496,7 @@ THREE.MTLLoader.MaterialCreator.prototype = {
 				case 'tr':
 					n = parseFloat( value );
 
-					if ( this.options && this.options.invertTrProperty ) n = 1 - n;
+					if ( this.options && this.options.invertTrProperty ) {n = 1 - n;}
 
 					if ( n > 0 ) {
 
@@ -575,10 +575,10 @@ THREE.MTLLoader.MaterialCreator.prototype = {
 
 		}
 
-		if ( loader.setCrossOrigin ) loader.setCrossOrigin( this.crossOrigin );
+		if ( loader.setCrossOrigin ) {loader.setCrossOrigin( this.crossOrigin );}
 		texture = loader.load( url, onLoad, onProgress, onError );
 
-		if ( mapping !== undefined ) texture.mapping = mapping;
+		if ( mapping !== undefined ) {texture.mapping = mapping;}
 
 		return texture;
 

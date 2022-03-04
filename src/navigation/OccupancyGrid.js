@@ -14,7 +14,7 @@
  */
 ROS3D.OccupancyGrid = function(options) {
   options = options || {};
-  var message = options.message;  
+  var message = options.message;
   var opacity = options.opacity || 1.0;
   var color = options.color || {r:255,g:255,b:255,a:255};
   var colorScheme = options.colorScheme || 'raw';
@@ -48,7 +48,7 @@ ROS3D.OccupancyGrid = function(options) {
   // assign options to this for subclasses
   Object.assign(this, options);
 
-  this.colorScheme = colorScheme
+  this.colorScheme = colorScheme;
 
   this.quaternion.copy(new THREE.Quaternion(
       origin.orientation.x,
@@ -61,7 +61,7 @@ ROS3D.OccupancyGrid = function(options) {
   this.position.z = origin.position.z;
   this.scale.x = info.resolution;
   this.scale.y = info.resolution;
-    
+
   var data = message.data;
   // update the texture (after the the super call and this are accessible)
   this.color = color;
@@ -70,13 +70,13 @@ ROS3D.OccupancyGrid = function(options) {
 
   for ( var row = 0; row < height; row++) {
     for ( var col = 0; col < width; col++) {
-      
+
       // determine the index into the map data
       var invRow = (height - row - 1);
       var mapI = col + (invRow * width);
-      // determine the value      
+      // determine the value
       var val = this.getValue(mapI, invRow, col, data);
-            
+
       // determine the color
       var color = this.getColor(mapI, invRow, col, val);
 

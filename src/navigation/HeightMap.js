@@ -84,7 +84,7 @@ ROS3D.HeightMap = function(options) {
     fragmentShader: heightmapFragmentShader,
     side: THREE.DoubleSide,
   });
-  shaderMaterial.transparent = true
+  shaderMaterial.transparent = true;
 
   THREE.Mesh.call(this, planeGeometry, shaderMaterial);
   Object.assign(this, options);
